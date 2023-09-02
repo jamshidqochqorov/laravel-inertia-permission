@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Resources\RoleResource;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
+use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
@@ -14,7 +16,9 @@ class RoleController extends Controller
      */
     public function index():Response
     {
-        return Inertia::render('Admin/Roles/RoleIndex');
+        return Inertia::render('Admin/Roles/RoleIndex',[
+            'roles'=>RoleResource::collection(Role::all())
+        ]);
     }
 
     /**
@@ -22,7 +26,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Admin/Roles/Create');
     }
 
     /**
