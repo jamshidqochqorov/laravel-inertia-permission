@@ -12,7 +12,6 @@ import SecondaryButton from "@/Components/SecondaryButton.vue";
 
 
 defineProps(["users"]);
-const form = useForm({})
 
 const showConfirmDeleteUserModal = ref(false)
 
