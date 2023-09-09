@@ -40,7 +40,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 Route::middleware(['auth','role:Admin'])->group(function () {
-    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/home', [AdminController::class, 'index'])->name('admin.index');
     Route::resource('/users',UserController::class);
     Route::resource('/roles',RoleController::class);
     Route::resource('/permissions',PermissionController::class);
